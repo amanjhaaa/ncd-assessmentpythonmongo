@@ -145,6 +145,10 @@ def result():
         return render_template('result1.html', add1=add,prescription=res)
     return render_template('result1.html', add1="result not found in session.")
 
+@app.route('/back',methods=['GET',"POST"])  
+def back():  
+    if request.method == 'POST':
+        return render_template("ncd.html");  
 if __name__ == '__main__':
     app.run(debug = True)  
     

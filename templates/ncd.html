@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,65 +20,90 @@
     </style> -->
     <link rel="stylesheet" href="static\ncd.css">
 </head>
+
 <body>
     <header id="ncd"> NCD RISK ASSESSMENT</header>
-    <img src="static\ncd.png" alt="Girl in a jacket">
-    <div class="form">
-        
+
+
+
+
+    <div class="flexContainer">
+
+        <div>
+            <img src="static\ncd1.png" alt="Girl in a jacket">
+        </div>
+        <div class="box">
             <form action="/result" method=post>
+                <label >AGE</label>
                 <div>
-                    AGE: <input type="number" name="age">
+                    <input type="number" name="age">
                 </div>
                 <br>
+                <br>
+                <br>
+                <br>
+                <label >SMOKE</label>
                 <div>
-                    smoke: <input type="text" name="smoke">
+                    <input type="text" name="smoke">
                 </div>
                 <br>
+                
+                <label >ALCOHOL</label>
                 <div>
-                    ALCOHOL: <input type="text" name="alcohol">
+                 
+                    <input type="text" name="alcohol">
                 </div>
                 <br>
+                
                 <div>
-                    GENDER: Male<input type="radio" name="male" > FeMale<input type="radio" name="female" >
+                    <label>GENDER</label>
+                    Male<input type="radio" name="male"> FeMale<input type="radio" name="female">
                 </div>
                 <br>
+                <label>MEASUREMENT</label>
                 <div>
-                    MEASUREMENT: <input type="number" name="measurement">
+                    
+                    <input type="number" name="measurement">
                 </div>
                 <br>
+                
+                <label >PHYSICAL</label>
                 <div>
-                    PHYSICAL: <input type="number" name="physical">
+                    <input type="number" name="physical">
                 </div>
                 <br>
+                
+                
                 <div>
                     <!-- Number of subjects: <input type="number"> -->
                     FAMILY_DISEASE_HISTORY: <input type="text" name="fam">
                 </div>
                 <br>
                 <!-- <div>
-                    Date: <input type="date" name="date">
-                </div>
-               
+                        Date: <input type="date" name="date">
+                    </div>
+                   
+                    <div>
+                        About your self: <textarea name="mytext"  cols="30" rows="10"></textarea>        </div>
+                   
+                    
+                   
+                    <div>
+                        <select name="Mycar" id="car">
+                            <option value="swift">swift</option>
+                            <option value="bmw">bmw</option>
+                        </select>
+                    </div> -->
+                    <br>
                 <div>
-                    About your self: <textarea name="mytext"  cols="30" rows="10"></textarea>        </div>
-               
-                
-               
-                <div>
-                    <select name="Mycar" id="car">
-                        <option value="swift">swift</option>
-                        <option value="bmw">bmw</option>
-                    </select>
-                </div> -->
-                <div>
-                     <input type="submit" value="submit">
-                    <!-- Name: <input type="reset" value="reset"> -->
+                    <input type="submit" value="submit">
+                    <input type="reset" value="reset">
                 </div>
             </form>
 
-        </div> 
-
-        
-        <b hidden>{{y}}</b>    
+        </div>
+    </div>
+    <b hidden>{{y}}</b>
 </body>
+
 </html>
