@@ -1,0 +1,18 @@
+#ncd {
+text-align: center;
+color: red;
+font-size: 60px;
+}
+
+img {  
+    max-width: 90%;  
+    height: auto;  
+    } 
+
+input[type=submit] {
+        width: 20%;
+        padding: 15px 15px;
+        margin: 24px 0;
+        box-sizing: border-box;
+    
+}
