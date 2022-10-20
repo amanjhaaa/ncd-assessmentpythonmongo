@@ -1,4 +1,4 @@
-from flask import *
+
 from flask import Flask,render_template,request,session
 app = Flask(__name__)#interface between webserver and web application
 
