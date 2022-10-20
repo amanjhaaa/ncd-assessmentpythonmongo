@@ -1,1 +1,1 @@
-web: gunicorn app:ncdapp
+web: gunicorn app:app
