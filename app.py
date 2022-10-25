@@ -1,10 +1,24 @@
 
-from flask import Flask,render_template,request,session
+# from crypt import methods
+from flask import Flask,render_template,request
 app = Flask(__name__)#interface between webserver and web application
 
 
-@app.route('/', methods=['GET',"POST"])
+@app.route("/" , methods = ['GET','POST'])
 def home():
+    return render_template("registration.html")  
+
+@app.route('/res',methods=['GET',"POST"])
+def res():
+    if request.method == "POST":
+        firstname = request.form.get('firstname')
+    return render_template('result1.html', fname=firstname)   
+
+
+
+
+@app.route('/login/', methods=['GET',"POST"])
+def ncd():
     return render_template('ncd.html')
 
 @app.route('/result',methods=['GET',"POST"])
