@@ -74,24 +74,24 @@ Gender :
             <div class="col-lg-8">
               <h2 class="fw-bold mb-5">PATIENT REGISTRATION FORM</h2>
   
-              <form action="signup" method="post">
+              <form action="registration" method="post">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="text" id="iname" name="fname" class="form-control" />
+                      <input type="text" id="fname" name="fname" class="form-control" />
                       <label class="form-label" for="fname">First name</label>
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="text" id="iname" name="mname" class="form-control" />
+                      <input type="text" id="mname" name="mname" class="form-control" />
                       <label class="form-label" for="mname">Middlename name</label>
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="text" id="iname"  name="lname" class="form-control" />
+                      <input type="text" id="lname"  name="lname" class="form-control" />
                       <label class="form-label" for="lname" >Last name</label>
                     </div>
                   </div>
@@ -129,10 +129,10 @@ Gender :
     <input type="text" id="pincode" name="pincode"
     pattern="[0-9]{6}" title="6 digit pin code note: only numbers are allowed "><br><br>
               </div>
-              
+              <button type="submit" class="btn btn-primary btn-block mb-4">login </button>
              
             </form>
-            <a href = "/login">LOGIN</a><br>
+            <!-- <a href = "/registration">LOGIN</a><br> -->
             </div>
           </div>
         </div>
