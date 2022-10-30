@@ -1,6 +1,6 @@
 from flask import Flask,render_template,request
 from pymongo import MongoClient
-
+from random import randint
 # import json
 app = Flask(__name__)#interface between webserver and web application
 
@@ -9,7 +9,7 @@ app = Flask(__name__)#interface between webserver and web application
 firstname = " "
 add = 0
 result = " "
-
+patientid = " "
 @app.route("/" , methods = ['GET','POST'])
 def home():
     return render_template("registration.html")
@@ -39,6 +39,7 @@ def home():
 # route to get data from html form and insert data into database
 @app.route('/registration', methods=["GET", "POST"])
 def registration():
+    global patientid
     global firstname
     middlename = " "
     lastname = " "
@@ -46,6 +47,9 @@ def registration():
     gender = " "
     birthday = " "
     pincode = " "
+
+    patientid = randint(10000000000000,99999999999999)
+    print(patientid)
     if request.method == "POST":
     
         firstname = request.form['fname']
@@ -57,7 +61,8 @@ def registration():
         pincode = request.form["pincode"]
         
         Collection.insert_one(
-            {"firstname" : firstname,
+            {"id" :patientid,
+                "firstname" : firstname,
         'middlename': middlename,
         "lastname":lastname,
         "email":email,
@@ -66,7 +71,7 @@ def registration():
         "pincode":pincode}
         )
     # print(data)
-    return render_template("ncd1.html",fname = firstname,mname= middlename,lname =  lastname,email1 = email,gender1 = gender,birthday1 = birthday,pincode1 = pincode)
+    return render_template("ncd1.html",id = patientid ,fname = firstname,mname= middlename,lname =  lastname,email1 = email,gender1 = gender,birthday1 = birthday,pincode1 = pincode)
 
 
 @app.route('/res',methods=['GET',"POST"])
@@ -146,7 +151,7 @@ def result():
 
             # disease_family_hist =  request.form.get('history')
             Collection.update_one(
-                {"firstname":firstname},
+                {"id":firstname},
                 
             {"$set": {"age" :age,
         'smoke': smoke,
@@ -166,13 +171,14 @@ def result():
             global result
             if count>4:
                 result="you need screening" 
-                Collection.update_one(
-                {"firstname":firstname},
-                {"$set": {"total_count" :add,"result" :result}})
+                # Collection.update_one(
+                # {"firstname":firstname},
+                # {"$set": {"total_count" :add,"result" :result}})
             else:
                 result="No screening needed"
-                Collection.update_one(
-                {"firstname":firstname},{"$set": {"total_count" :add,"result" :result}})
+
+            Collection.update_one(
+            {"id" :patientid,},{"$set": {"total_count" :add,"result" :result}})
 
 
             return render_template('result1.html', add1=add,prescription=result)
